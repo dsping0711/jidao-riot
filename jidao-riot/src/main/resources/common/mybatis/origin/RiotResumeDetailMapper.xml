@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jidao.riot.mapper.origin.RiotResumeDetailMapper">
+  <resultMap id="BaseResultMap" type="com.jidao.common.persistence.entity.riot.origin.RiotResumeDetail">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="resume_source_id" jdbcType="INTEGER" property="resumeSourceId" />
+    <result column="resume_source" jdbcType="INTEGER" property="resumeSource" />
+    <result column="resume_update_time" jdbcType="DATE" property="resumeUpdateTime" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="gender" jdbcType="VARCHAR" property="gender" />
+    <result column="work_year" jdbcType="INTEGER" property="workYear" />
+    <result column="unique_resume_id" jdbcType="CHAR" property="uniqueResumeId" />
+    <result column="job_status" jdbcType="INTEGER" property="jobStatus" />
+    <result column="job_title" jdbcType="VARCHAR" property="jobTitle" />
+    <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, resume_source_id, resume_source, resume_update_time, user_name, gender, work_year,
+    unique_resume_id, job_status, job_title, created_time, updated_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from riot_resume_detail
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from riot_resume_detail
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insertSelective" parameterType="com.jidao.common.persistence.entity.riot.origin.RiotResumeDetail">
+    insert into riot_resume_detail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="resumeSourceId != null">
+        resume_source_id,
+      </if>
+      <if test="resumeSource != null">
+        resume_source,
+      </if>
+      <if test="resumeUpdateTime != null">
+        resume_update_time,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="workYear != null">
+        work_year,
+      </if>
+      <if test="uniqueResumeId != null">
+        unique_resume_id,
+      </if>
+      <if test="jobStatus != null">
+        job_status,
+      </if>
+      <if test="jobTitle != null">
+        job_title,
+      </if>
+      <if test="createdTime != null">
+        created_time,
+      </if>
+      <if test="updatedTime != null">
+        updated_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="resumeSourceId != null">
+        #{resumeSourceId,jdbcType=INTEGER},
+      </if>
+      <if test="resumeSource != null">
+        #{resumeSource,jdbcType=INTEGER},
+      </if>
+      <if test="resumeUpdateTime != null">
+        #{resumeUpdateTime,jdbcType=DATE},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="workYear != null">
+        #{workYear,jdbcType=INTEGER},
+      </if>
+      <if test="uniqueResumeId != null">
+        #{uniqueResumeId,jdbcType=CHAR},
+      </if>
+      <if test="jobStatus != null">
+        #{jobStatus,jdbcType=INTEGER},
+      </if>
+      <if test="jobTitle != null">
+        #{jobTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jidao.common.persistence.entity.riot.origin.RiotResumeDetail">
+    update riot_resume_detail
+    <set>
+      <if test="resumeSourceId != null">
+        resume_source_id = #{resumeSourceId,jdbcType=INTEGER},
+      </if>
+      <if test="resumeSource != null">
+        resume_source = #{resumeSource,jdbcType=INTEGER},
+      </if>
+      <if test="resumeUpdateTime != null">
+        resume_update_time = #{resumeUpdateTime,jdbcType=DATE},
+      </if>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="workYear != null">
+        work_year = #{workYear,jdbcType=INTEGER},
+      </if>
+      <if test="uniqueResumeId != null">
+        unique_resume_id = #{uniqueResumeId,jdbcType=CHAR},
+      </if>
+      <if test="jobStatus != null">
+        job_status = #{jobStatus,jdbcType=INTEGER},
+      </if>
+      <if test="jobTitle != null">
+        job_title = #{jobTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedTime != null">
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

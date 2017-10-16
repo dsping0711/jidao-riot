@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jidao.riot.mapper.business.RiotTalentResumeMapper">
+  <resultMap id="BaseResultMap" type="com.jidao.common.persistence.entity.riot.business.RiotTalentResume">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="monitor_company_id" jdbcType="INTEGER" property="monitorCompanyId" />
+    <result column="resume_id" jdbcType="INTEGER" property="resumeId" />
+    <result column="unique_resume_id" jdbcType="VARCHAR" property="uniqueResumeId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="position" jdbcType="VARCHAR" property="position" />
+    <result column="work_year" jdbcType="INTEGER" property="workYear" />
+    <result column="gender" jdbcType="VARCHAR" property="gender" />
+    <result column="entry_time" jdbcType="TIMESTAMP" property="entryTime" />
+    <result column="school" jdbcType="VARCHAR" property="school" />
+    <result column="major" jdbcType="VARCHAR" property="major" />
+    <result column="degree" jdbcType="VARCHAR" property="degree" />
+    <result column="edu_start_time" jdbcType="VARCHAR" property="eduStartTime" />
+    <result column="edu_end_time" jdbcType="VARCHAR" property="eduEndTime" />
+    <result column="resume_status" jdbcType="INTEGER" property="resumeStatus" />
+    <result column="resume_update_time" jdbcType="TIMESTAMP" property="resumeUpdateTime" />
+    <result column="resume_first_time" jdbcType="TIMESTAMP" property="resumeFirstTime" />
+    <result column="resume_source" jdbcType="CHAR" property="resumeSource" />
+    <result column="resume_refresh_count" jdbcType="INTEGER" property="resumeRefreshCount" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, monitor_company_id, resume_id, unique_resume_id, name, position, work_year, gender,
+    entry_time, school, major, degree, edu_start_time, edu_end_time, resume_status, resume_update_time, 
+    resume_first_time, resume_source, resume_refresh_count, status, created_time, updated_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from riot_talent_resume
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from riot_talent_resume
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insertSelective" parameterType="com.jidao.common.persistence.entity.riot.business.RiotTalentResume">
+    insert into riot_talent_resume
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="monitorCompanyId != null">
+        monitor_company_id,
+      </if>
+      <if test="resumeId != null">
+        resume_id,
+      </if>
+      <if test="uniqueResumeId != null">
+        unique_resume_id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="position != null">
+        position,
+      </if>
+      <if test="workYear != null">
+        work_year,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="entryTime != null">
+        entry_time,
+      </if>
+      <if test="school != null">
+        school,
+      </if>
+      <if test="major != null">
+        major,
+      </if>
+      <if test="degree != null">
+        degree,
+      </if>
+      <if test="eduStartTime != null">
+        edu_start_time,
+      </if>
+      <if test="eduEndTime != null">
+        edu_end_time,
+      </if>
+      <if test="resumeStatus != null">
+        resume_status,
+      </if>
+      <if test="resumeUpdateTime != null">
+        resume_update_time,
+      </if>
+      <if test="resumeFirstTime != null">
+        resume_first_time,
+      </if>
+      <if test="resumeSource != null">
+        resume_source,
+      </if>
+      <if test="resumeRefreshCount != null">
+        resume_refresh_count,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="createdTime != null">
+        created_time,
+      </if>
+      <if test="updatedTime != null">
+        updated_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="monitorCompanyId != null">
+        #{monitorCompanyId,jdbcType=INTEGER},
+      </if>
+      <if test="resumeId != null">
+        #{resumeId,jdbcType=INTEGER},
+      </if>
+      <if test="uniqueResumeId != null">
+        #{uniqueResumeId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null">
+        #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="workYear != null">
+        #{workYear,jdbcType=INTEGER},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="entryTime != null">
+        #{entryTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="school != null">
+        #{school,jdbcType=VARCHAR},
+      </if>
+      <if test="major != null">
+        #{major,jdbcType=VARCHAR},
+      </if>
+      <if test="degree != null">
+        #{degree,jdbcType=VARCHAR},
+      </if>
+      <if test="eduStartTime != null">
+        #{eduStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="eduEndTime != null">
+        #{eduEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="resumeStatus != null">
+        #{resumeStatus,jdbcType=INTEGER},
+      </if>
+      <if test="resumeUpdateTime != null">
+        #{resumeUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="resumeFirstTime != null">
+        #{resumeFirstTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="resumeSource != null">
+        #{resumeSource,jdbcType=CHAR},
+      </if>
+      <if test="resumeRefreshCount != null">
+        #{resumeRefreshCount,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jidao.common.persistence.entity.riot.business.RiotTalentResume">
+    update riot_talent_resume
+    <set>
+      <if test="monitorCompanyId != null">
+        monitor_company_id = #{monitorCompanyId,jdbcType=INTEGER},
+      </if>
+      <if test="resumeId != null">
+        resume_id = #{resumeId,jdbcType=INTEGER},
+      </if>
+      <if test="uniqueResumeId != null">
+        unique_resume_id = #{uniqueResumeId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null">
+        position = #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="workYear != null">
+        work_year = #{workYear,jdbcType=INTEGER},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="entryTime != null">
+        entry_time = #{entryTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="school != null">
+        school = #{school,jdbcType=VARCHAR},
+      </if>
+      <if test="major != null">
+        major = #{major,jdbcType=VARCHAR},
+      </if>
+      <if test="degree != null">
+        degree = #{degree,jdbcType=VARCHAR},
+      </if>
+      <if test="eduStartTime != null">
+        edu_start_time = #{eduStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="eduEndTime != null">
+        edu_end_time = #{eduEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="resumeStatus != null">
+        resume_status = #{resumeStatus,jdbcType=INTEGER},
+      </if>
+      <if test="resumeUpdateTime != null">
+        resume_update_time = #{resumeUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="resumeFirstTime != null">
+        resume_first_time = #{resumeFirstTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="resumeSource != null">
+        resume_source = #{resumeSource,jdbcType=CHAR},
+      </if>
+      <if test="resumeRefreshCount != null">
+        resume_refresh_count = #{resumeRefreshCount,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createdTime != null">
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedTime != null">
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jidao.riot.mapper.business.RiotMonitorCompanyMapper">
+  <resultMap id="BaseResultMap" type="com.jidao.common.persistence.entity.riot.business.RiotMonitorCompany">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="hr_id" jdbcType="INTEGER" property="hrId" />
+    <result column="company_name" jdbcType="VARCHAR" property="companyName" />
+    <result column="company_nick_name" jdbcType="VARCHAR" property="companyNickName" />
+    <result column="company_firm" jdbcType="VARCHAR" property="companyFirm" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="apply_time" jdbcType="TIMESTAMP" property="applyTime" />
+    <result column="effective_time" jdbcType="TIMESTAMP" property="effectiveTime" />
+    <result column="invalid_time" jdbcType="TIMESTAMP" property="invalidTime" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_id, hr_id, company_name, company_nick_name, company_firm, city, apply_time,
+    effective_time, invalid_time, status, created_time, updated_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from riot_monitor_company
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from riot_monitor_company
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insertSelective" parameterType="com.jidao.common.persistence.entity.riot.business.RiotMonitorCompany">
+    insert into riot_monitor_company
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="hrId != null">
+        hr_id,
+      </if>
+      <if test="companyName != null">
+        company_name,
+      </if>
+      <if test="companyNickName != null">
+        company_nick_name,
+      </if>
+      <if test="companyFirm != null">
+        company_firm,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="applyTime != null">
+        apply_time,
+      </if>
+      <if test="effectiveTime != null">
+        effective_time,
+      </if>
+      <if test="invalidTime != null">
+        invalid_time,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="createdTime != null">
+        created_time,
+      </if>
+      <if test="updatedTime != null">
+        updated_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="hrId != null">
+        #{hrId,jdbcType=INTEGER},
+      </if>
+      <if test="companyName != null">
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyNickName != null">
+        #{companyNickName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyFirm != null">
+        #{companyFirm,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="applyTime != null">
+        #{applyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="effectiveTime != null">
+        #{effectiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="invalidTime != null">
+        #{invalidTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jidao.common.persistence.entity.riot.business.RiotMonitorCompany">
+    update riot_monitor_company
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="hrId != null">
+        hr_id = #{hrId,jdbcType=INTEGER},
+      </if>
+      <if test="companyName != null">
+        company_name = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyNickName != null">
+        company_nick_name = #{companyNickName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyFirm != null">
+        company_firm = #{companyFirm,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="applyTime != null">
+        apply_time = #{applyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="effectiveTime != null">
+        effective_time = #{effectiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="invalidTime != null">
+        invalid_time = #{invalidTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createdTime != null">
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedTime != null">
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

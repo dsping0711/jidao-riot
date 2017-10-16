@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jidao.riot.mapper.origin.RiotWorkExperienceMapper">
+  <resultMap id="BaseResultMap" type="com.jidao.common.persistence.entity.riot.origin.RiotWorkExperience">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="riot_resume_id" jdbcType="INTEGER" property="riotResumeId" />
+    <result column="start_date" jdbcType="VARCHAR" property="startDate" />
+    <result column="end_date" jdbcType="VARCHAR" property="endDate" />
+    <result column="company_name" jdbcType="VARCHAR" property="companyName" />
+    <result column="job_category" jdbcType="VARCHAR" property="jobCategory" />
+    <result column="job_title" jdbcType="VARCHAR" property="jobTitle" />
+    <result column="salary" jdbcType="VARCHAR" property="salary" />
+    <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.jidao.common.persistence.entity.riot.origin.RiotWorkExperience">
+    <result column="job_description" jdbcType="LONGVARBINARY" property="jobDescription" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, riot_resume_id, start_date, end_date, company_name, job_category, job_title,
+    salary, created_time, updated_time
+  </sql>
+  <sql id="Blob_Column_List">
+    job_description
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from riot_work_experience
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from riot_work_experience
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insertSelective" parameterType="com.jidao.common.persistence.entity.riot.origin.RiotWorkExperience">
+    insert into riot_work_experience
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="riotResumeId != null">
+        riot_resume_id,
+      </if>
+      <if test="startDate != null">
+        start_date,
+      </if>
+      <if test="endDate != null">
+        end_date,
+      </if>
+      <if test="companyName != null">
+        company_name,
+      </if>
+      <if test="jobCategory != null">
+        job_category,
+      </if>
+      <if test="jobTitle != null">
+        job_title,
+      </if>
+      <if test="salary != null">
+        salary,
+      </if>
+      <if test="createdTime != null">
+        created_time,
+      </if>
+      <if test="updatedTime != null">
+        updated_time,
+      </if>
+      <if test="jobDescription != null">
+        job_description,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="riotResumeId != null">
+        #{riotResumeId,jdbcType=INTEGER},
+      </if>
+      <if test="startDate != null">
+        #{startDate,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null">
+        #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null">
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="jobCategory != null">
+        #{jobCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="jobTitle != null">
+        #{jobTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="salary != null">
+        #{salary,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jobDescription != null">
+        #{jobDescription,jdbcType=LONGVARBINARY},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jidao.common.persistence.entity.riot.origin.RiotWorkExperience">
+    update riot_work_experience
+    <set>
+      <if test="riotResumeId != null">
+        riot_resume_id = #{riotResumeId,jdbcType=INTEGER},
+      </if>
+      <if test="startDate != null">
+        start_date = #{startDate,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null">
+        end_date = #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null">
+        company_name = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="jobCategory != null">
+        job_category = #{jobCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="jobTitle != null">
+        job_title = #{jobTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="salary != null">
+        salary = #{salary,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedTime != null">
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jobDescription != null">
+        job_description = #{jobDescription,jdbcType=LONGVARBINARY},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.jidao.common.persistence.entity.riot.origin.RiotWorkExperience">
+    update riot_work_experience
+    set riot_resume_id = #{riotResumeId,jdbcType=INTEGER},
+      start_date = #{startDate,jdbcType=VARCHAR},
+      end_date = #{endDate,jdbcType=VARCHAR},
+      company_name = #{companyName,jdbcType=VARCHAR},
+      job_category = #{jobCategory,jdbcType=VARCHAR},
+      job_title = #{jobTitle,jdbcType=VARCHAR},
+      salary = #{salary,jdbcType=VARCHAR},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      job_description = #{jobDescription,jdbcType=LONGVARBINARY}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
