@@ -10,6 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Controller
 @EnableWebMvc
 public class RiotApplication extends WebMvcConfigurerAdapter {
+
     public static void main(String[] args) {
         SpringApplication.run(RiotApplication.class, args);
     }
